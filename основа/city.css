@@ -1,0 +1,245 @@
+.aktau-page,
+.almaty-page,
+.shymkent-page,
+.compass-page {
+    box-sizing: border-box;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 20px;
+    place-items: center;
+    overflow-x: hidden;
+    color: #f5f1e8;
+    background: #171913 url("step.jpg") center / cover fixed no-repeat;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color-scheme: dark;
+}
+
+.aktau-page *,
+.almaty-page *,
+.shymkent-page *,
+.compass-page *,
+.aktau-page *::before,
+.almaty-page *::before,
+.shymkent-page *::before,
+.compass-page *::before,
+.aktau-page *::after,
+.almaty-page *::after,
+.shymkent-page *::after,
+.compass-page *::after {
+    box-sizing: border-box;
+}
+
+.aktau-page::before,
+.almaty-page::before,
+.shymkent-page::before,
+.compass-page::before {
+    position: fixed;
+    z-index: -1;
+    background: linear-gradient(180deg, #0e110d85, #0e110dc2);
+    content: "";
+    inset: 0;
+}
+
+.aktau-page-content,
+.almaty-page-content,
+.shymkent-page-content,
+.compass-page .astana-page-content {
+    display: grid;
+    width: min(100%, 1280px);
+    gap: 24px;
+}
+
+.aktau-home-link,
+.almaty-home-link,
+.shymkent-home-link,
+.compass-page .astana-home-link {
+    position: fixed;
+    z-index: 2;
+    top: 24px;
+    left: 28px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: #f0d69e;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    transition: color 240ms ease, background-color 240ms ease;
+}
+
+.aktau-home-link:hover,
+.almaty-home-link:hover,
+.shymkent-home-link:hover,
+.compass-page .astana-home-link:hover {
+    color: #fff1c9;
+    background: #13161173;
+}
+
+.aktau-header,
+.almaty-header,
+.shymkent-header,
+.aktau-highlights,
+.almaty-highlights,
+.shymkent-highlights,
+.compass-page .compass-container {
+    border: 1px solid #eedeb92b;
+    border-radius: 28px;
+    background: #131611a8;
+    box-shadow: 0 28px 90px #00000052;
+    backdrop-filter: blur(14px);
+}
+
+.aktau-header,
+.almaty-header,
+.shymkent-header,
+.compass-page .astana-page-content > header {
+    width: min(100%, 760px);
+    justify-self: center;
+    padding: 20px 28px;
+    text-align: center;
+}
+
+.aktau-header h1,
+.almaty-header h1,
+.shymkent-header h1,
+.compass-page .compass-container h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: -0.045em;
+}
+
+.aktau-intro,
+.almaty-intro,
+.shymkent-intro,
+.compass-page .intro {
+    margin: 6px 0 0;
+    color: #f5f1e8b8;
+    font-size: 0.98rem;
+}
+
+.aktau-gallery,
+.almaty-gallery,
+.shymkent-gallery,
+.compass-page .astana-gallery {
+    display: grid;
+    gap: 12px;
+}
+
+.aktau-gallery > h2,
+.almaty-gallery > h2,
+.shymkent-gallery > h2,
+.compass-page .astana-gallery h2 {
+    margin: 0 0 2px;
+    color: #f5f1e8e6;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+}
+
+.aktau-gallery__grid,
+.almaty-gallery__grid,
+.shymkent-gallery__grid,
+.compass-page .astana-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.aktau-gallery__card,
+.almaty-gallery__card,
+.shymkent-gallery__card,
+.compass-page .astana-gallery__card {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid #eedeb92b;
+    border-radius: 14px;
+    background: #13161194;
+    box-shadow: 0 12px 30px #0000002e;
+    text-align: left;
+    transition: transform 380ms ease, border-color 380ms ease, box-shadow 380ms ease;
+}
+
+.aktau-gallery__card:hover,
+.almaty-gallery__card:hover,
+.shymkent-gallery__card:hover,
+.compass-page .astana-gallery__card:hover {
+    transform: scale(1.02);
+    border-color: #f0d69eb8;
+    box-shadow: 0 20px 42px #00000057;
+}
+
+.aktau-gallery__card img,
+.almaty-gallery__card img,
+.shymkent-gallery__card img,
+.compass-page .astana-gallery__card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.aktau-gallery__caption,
+.almaty-gallery__caption,
+.shymkent-gallery__caption,
+.compass-page .astana-gallery__caption {
+    padding: 16px;
+    color: #f5efdfad;
+    font-size: 0.84rem;
+    line-height: 1.55;
+}
+
+.aktau-gallery__caption strong,
+.almaty-gallery__caption strong,
+.shymkent-gallery__caption strong,
+.compass-page .astana-gallery__card strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #f0d69e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+.aktau-highlights,
+.almaty-highlights,
+.shymkent-highlights,
+.compass-page .destinations {
+    display: grid;
+    width: min(100%, 940px);
+    justify-self: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    padding: 20px 24px;
+}
+
+.aktau-highlight h2,
+.almaty-highlight h2,
+.shymkent-highlight h2,
+.compass-page .destination-info h3 {
+    margin: 0 0 4px;
+    color: #d9bd7e;
+    font-size: 1rem;
+}
+
+.aktau-highlight p,
+.almaty-highlight p,
+.shymkent-highlight p,
+.compass-page .destination-info p {
+    margin: 0;
+    color: #f5efdfd1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.compass-page .astana-page-content > header h1 {
+    font-size: 2.8rem;
+}
+
+.compass-page .destinations {
+    text-align: left;
+}

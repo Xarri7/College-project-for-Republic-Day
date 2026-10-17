@@ -1,0 +1,561 @@
+.compass-page {
+    --map-paper: #e6ddc7;
+    --map-gold: #d5b979;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    color: var(--map-paper);
+    background: #192019 url("step.jpg") center / cover fixed no-repeat;
+    font-family: "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.compass-page,
+.compass-page * {
+    box-sizing: border-box;
+}
+
+.compass-page::before {
+    position: fixed;
+    z-index: -1;
+    background: linear-gradient(180deg, #0F14108C, #0F1410D1);
+    content: "";
+    inset: 0;
+}
+
+.compass-container {
+    width: min(1400px, 100%);
+    margin: 0 auto;
+    padding: 48px clamp(16px, 4vw, 40px) 36px;
+    text-align: center;
+}
+
+.compass-container:not(.authors-container) {
+    padding-top: clamp(16px, 2.5vh, 28px);
+    padding-bottom: clamp(8px, 1.5vh, 20px);
+}
+
+.compass-container:not(.authors-container) .intro {
+    margin: 0;
+}
+
+.tourism-overview {
+    width: min(760px, 100%);
+    margin: 10px auto 14px;
+    padding: 12px 22px;
+    border-left: 2px solid #D5B979B8;
+    background: linear-gradient(100deg, #4B4F357A, #19201994);
+}
+
+.compass-container:not(.authors-container) .destination-map-stage {
+    height: auto;
+    aspect-ratio: 930 / 500;
+}
+
+.compass-container:not(.authors-container) .hint {
+    margin-top: -8px;
+}
+
+.authors-container {
+    width: 900px;
+    padding: 24px 40px 20px;
+}
+
+.authors-container .intro {
+    margin: 8px 0 16px;
+}
+
+.authors-photo {
+    width: 400px;
+    margin: 16px auto 0;
+    padding: 6px;
+    border: 1px solid #D5B979C7;
+    background: #182018B8;
+    box-shadow: 0 14px 36px #0000004D;
+}
+
+.authors-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.authors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 20px auto 0;
+    text-align: left;
+}
+
+.author {
+    min-height: 130px;
+    padding: 16px 20px;
+    border-left: 2px solid #D5B979B8;
+    background: linear-gradient(145deg, #4B4F357A, #19201994);
+}
+
+.author h2 {
+    margin: 0 0 8px;
+    color: #f1dfb3;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.author p,
+.authors-note {
+    color: #E6DDC7C2;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.authors-note {
+    margin: 14px 0;
+}
+
+.compass-page .authors-back {
+    position: fixed;
+    z-index: 2;
+    top: 24px;
+    left: 28px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: #f0d69e;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-align: left;
+    text-decoration: none;
+    transform: none;
+    transition:
+        color 240ms ease,
+        background-color 240ms ease;
+}
+
+.compass-page .authors-back:hover,
+.compass-page .authors-back:focus-visible {
+    color: #fff1c9;
+    background-color: rgba(19, 22, 17, 0.45);
+    transform: none;
+}
+
+.eyebrow {
+    margin: 0 0 13px;
+    color: var(--map-gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+}
+
+.compass-container h1 {
+    margin: 0;
+    color: #f4eddc;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 54px;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+}
+
+.intro {
+    margin: 13px 0 30px;
+    color: #E6DDC7B8;
+    font-size: 15px;
+}
+
+.destinations h2 {
+    margin: 0 0 7px;
+    color: #E6DDC78A;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.destinations-note {
+    margin: 0 0 2px;
+    color: #E6DDC7AE;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+}
+
+.destination-map-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 930 / 500;
+    margin: 0 auto;
+}
+
+.destination-map-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.map-land {
+    fill: url("#steppe-fill");
+    stroke: #DDCB97D9;
+    stroke-width: 2.2;
+    stroke-linejoin: round;
+}
+
+.map-land--outline {
+    fill: none;
+    pointer-events: none;
+}
+
+.map-road__bed,
+.map-road {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+.map-road__bed {
+    stroke: #18201878;
+    stroke-width: 3.5;
+}
+
+.map-road {
+    stroke: #E7D7AC85;
+    stroke-width: 1.2;
+    stroke-dasharray: 7 5;
+}
+
+.destination {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--map-paper);
+    text-decoration: none;
+    text-align: left;
+    transform-origin: left center;
+    transition: transform 180ms ease, filter 180ms ease;
+}
+
+.destination:hover {
+    z-index: 4;
+    filter: brightness(1.15);
+    transform: scale(1.08);
+}
+
+.destination:focus-visible {
+    z-index: 4;
+    border-radius: 4px;
+    outline: 2px solid var(--map-gold);
+    outline-offset: 6px;
+    transform: scale(1.05);
+}
+
+.destination__marker {
+    flex: 0 0 9px;
+    width: 9px;
+    height: 9px;
+    border: 2px solid #e6d29c;
+    border-radius: 50%;
+    background: #a75f42;
+    box-shadow: 0 0 0 5px #D6B9791F, 0 0 17px #D6B97959;
+    transform: translate(-50%, -50%);
+}
+
+.destination__name {
+    display: block;
+    color: #f1dfb3;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    line-height: 1.1;
+}
+
+.destination__detail {
+    display: block;
+    margin-top: 5px;
+    color: #E6DDC7B8;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+}
+
+.destination--astana {
+    top: 30.7%;
+    left: 60%;
+}
+
+.destination--astana > span:last-child {
+    width: 205px;
+    padding: 5px 7px;
+    border-radius: 3px;
+    background: #192019A8;
+}
+
+.destination--aktau {
+    top: 76.9%;
+    left: 15.2%;
+}
+
+.destination--aktau > span:last-child {
+    width: 180px;
+    padding: 5px 7px;
+    border-radius: 3px;
+    background: #192019A8;
+    transform: translateY(-100%);
+    margin-top: -10px;
+}
+
+.destination--shymkent {
+    top: 85%;
+    left: 55.9%;
+}
+
+.destination--shymkent > span:last-child {
+    width: 200px;
+    padding: 5px 7px;
+    border-radius: 3px;
+    background: #192019A8;
+    transform: translateX(-100%);
+    margin-left: -10px;
+    text-align: right;
+}
+
+.destination--almaty {
+    top: 79.4%;
+    left: 72.2%;
+}
+
+.destination--almaty > span:last-child {
+    width: 175px;
+    padding: 5px 7px;
+    border-radius: 3px;
+    background: #192019A8;
+    transform: translateY(-100%);
+    margin-top: -10px;
+}
+
+.compass {
+    position: absolute;
+    z-index: 3;
+    top: 51%;
+    left: 48%;
+    display: grid;
+    width: 142px;
+    aspect-ratio: 1;
+    place-items: center;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    user-select: none;
+}
+
+.compass__face {
+    position: relative;
+    display: grid;
+    width: 82%;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid #E6D3A5A6;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, #171D17FA 0 59%, #00000000 60%),
+        repeating-conic-gradient(from 0deg, #E6D3A5BF 0deg 0.7deg, #00000000 0.7deg 6deg),
+        #192019D1;
+    box-shadow: inset 0 0 0 7px #0F1410CC, 0 10px 32px #0000004D;
+}
+
+.compass__face::before {
+    position: absolute;
+    border: 1px solid #E6D3A529;
+    border-radius: 50%;
+    content: "";
+    inset: 15%;
+}
+
+.compass__needle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 66%;
+    height: 66%;
+    overflow: visible;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transform-origin: center;
+    will-change: transform;
+}
+
+.compass__needle-north {
+    fill: #cf795c;
+    stroke: #e8b394;
+    stroke-linejoin: round;
+    stroke-width: 1;
+}
+
+.compass__needle-south {
+    fill: #e6ddc7;
+    stroke: #fff6df;
+    stroke-linejoin: round;
+    stroke-width: 1;
+}
+
+.compass__pivot {
+    fill: var(--map-gold);
+    stroke: #fff0c8;
+    stroke-width: 1.5;
+}
+
+.compass__cardinal {
+    position: absolute;
+    z-index: 1;
+    color: #F4EDCCE6;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+}
+
+.compass__cardinal--north {
+    top: 0;
+    color: var(--map-gold);
+}
+
+.compass__cardinal--east {
+    right: 0;
+}
+
+.compass__cardinal--south {
+    bottom: 0;
+}
+
+.compass__cardinal--west {
+    left: 0;
+}
+
+.hint {
+    display: inline-block;
+    margin: 0;
+    color: #E6DDC794;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    transform-origin: center;
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+.hint:hover,
+.hint:focus-visible {
+    color: var(--map-gold);
+    transform: scale(1.08);
+}
+
+.hint:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--map-gold);
+    outline-offset: 5px;
+}
+
+.map-control {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 11px;
+    border: 1px solid #E6DDC733;
+    border-radius: 999px;
+    color: #E6DDC7C7;
+    background: #192019A8;
+    font: inherit;
+    font-size: 10px;
+    cursor: pointer;
+    transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.map-control:hover,
+.map-control:focus-visible,
+.map-control[aria-pressed="true"] {
+    border-color: #D5B979B8;
+    color: #f1dfb3;
+    background: #4B4F357A;
+}
+
+.map-control:focus-visible,
+.field-note__next:focus-visible {
+    outline: 2px solid var(--map-gold);
+    outline-offset: 3px;
+}
+
+.map-control__sun {
+    color: #e5c786;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.map-control--time {
+    position: fixed;
+    z-index: 5;
+    top: 24px;
+    right: 28px;
+}
+
+.map-experience {
+    display: grid;
+    width: min(1320px, 100%);
+    grid-template-columns: minmax(0, 1fr) 205px;
+    align-items: center;
+    gap: 14px;
+    margin: clamp(36px, 8vh, 72px) 0 0;
+}
+
+.compass-container:not(.authors-container) .destination-map-stage {
+    width: min(100%, 870px);
+    height: auto;
+    aspect-ratio: 930 / 500;
+}
+
+.field-note {
+    min-height: 180px;
+    padding: 20px 17px;
+    border-left: 1px solid #D5B979B8;
+    background: linear-gradient(145deg, #4B4F357A, #192019B8);
+    text-align: left;
+}
+
+.field-note__eyebrow {
+    color: #E6DDC794;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+}
+
+.field-note__text {
+    min-height: 66px;
+    margin: 12px 0 17px;
+    color: #f1dfb3;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.field-note__next {
+    padding: 0;
+    border: 0;
+    color: #D5B979;
+    background: transparent;
+    font: inherit;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.field-note__next:hover {
+    color: #fff1c9;
+}
+
+.compass-page[data-time="dawn"] {
+    filter: saturate(1.08);
+}
+
+.compass-page[data-time="dawn"]::before {
+    background:
+        linear-gradient(180deg, #6d513064, #1a2117b8),
+        radial-gradient(ellipse at 50% 8%, #e5b76d38, transparent 58%);
+}
+
+.compass-page[data-time="dawn"] .map-land {
+    stroke: #F0D69E;
+}
